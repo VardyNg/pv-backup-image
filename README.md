@@ -12,14 +12,14 @@ TAG=22.04-v2
 IMAGE=vardyng/ubuntu-aws-cli
 ```
 ```sh
-docker buildx build --load --platform linux/amd64 -t $IMAGE:$TAG-amd .
+docker buildx build --build-arg AWS_CLI_URL="https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" --load --platform linux/amd64 -t $IMAGE:$TAG-amd .
 ```
 
 ```sh
 docker push $IMAGE:$TAG-amd
 ```
 ```sh
-docker buildx build --load --platform linux/arm64/v8 -t $IMAGE:$TAG-arm .
+docker buildx build --build-arg AWS_CLI_URL="https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" --load --platform linux/arm64/v8 -t $IMAGE:$TAG-arm .
 ```
 ```sh
 docker push $IMAGE:$TAG-arm
